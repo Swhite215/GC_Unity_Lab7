@@ -24,9 +24,11 @@ public class AgentAi : MonoBehaviour {
 	void Update () {
 		agent.SetDestination(PlayerTransform.position);
 
-		if (Time.time > lastGeneratedTime + rechargeTime) {
-			fireShot (PlayerTransform.gameObject);
-			lastGeneratedTime = Time.time;
+		if (shot != null) {
+			if (Time.time > lastGeneratedTime + rechargeTime) {
+				fireShot (PlayerTransform.gameObject);
+				lastGeneratedTime = Time.time;
+			}
 		}
 	}
 
