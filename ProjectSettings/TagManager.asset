@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Target
   - Platform
+  - PlayerTarget
   layers:
   - Default
   - TransparentFX
