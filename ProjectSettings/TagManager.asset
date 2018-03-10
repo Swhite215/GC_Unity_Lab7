@@ -9,6 +9,8 @@ TagManager:
   - Target
   - Platform
   - PlayerTarget
+  - Fire
+  - VRUnit
   layers:
   - Default
   - TransparentFX

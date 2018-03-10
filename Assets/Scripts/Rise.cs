@@ -8,7 +8,7 @@ public class Rise : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
         Debug.Log(collider);
-		if (collider.tag == "Player") {
+		if (collider.tag == "PlayerTarget") {
 			animator.SetTrigger ("Rise");
 		}
 	}
