@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Enemy
+  - InventoryIcon
+  - RightController
+  - InventoryMenu
+  - Platform
+  - PlayerTarget
+  - Grenade
   layers:
   - Default
   - TransparentFX

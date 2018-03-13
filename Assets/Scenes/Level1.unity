@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39438245, g: 0.46998757, b: 0.5787881, a: 1}
+  m_IndirectSpecularColor: {r: 0.39437988, g: 0.46998322, b: 0.57878447, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 1fb8ab2be569644da91ce6344a7ad5e9,
+  m_LightingDataAsset: {fileID: 112000004, guid: 60609b8ce3afd3941b7efebf1dca9579,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -114,11 +114,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0d1fe679fd43545459eb3e36f7e2abb8, type: 2}
---- !u!1 &20339121 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1464519094351194, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1001 &46295097
 Prefab:
   m_ObjectHideFlags: 0
@@ -174,11 +169,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4847581702768734, guid: 2291d94d8ee2b42ccaf97bbebe595089,
     type: 2}
   m_PrefabInternal: {fileID: 46295097}
---- !u!1 &61273586 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1446891206353122, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1 &90514006
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,11 +358,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &234909505 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1648297044699836, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1 &255633419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,11 +1950,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!1 &822593497 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820121596679604, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1 &876606959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &996683239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2464,11 +2444,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1177810565}
   m_Mesh: {fileID: 4300000, guid: c65eeed0e623d84468374b51a0d355da, type: 3}
---- !u!1 &1197201120 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1333916195553514, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1 &1208837346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,11 +3056,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574795099}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1617799363 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1066118535192590, guid: cdd6b9b59f7812942be799e9c57446cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 2136210369}
 --- !u!1 &1831101876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,32 +4213,62 @@ Prefab:
         type: 2}
       propertyPath: actualBoundaries
       value: 
-      objectReference: {fileID: 1197201120}
+      objectReference: {fileID: 2136210375}
     - target: {fileID: 114383580440973326, guid: cdd6b9b59f7812942be799e9c57446cc,
         type: 2}
       propertyPath: actualHeadset
       value: 
-      objectReference: {fileID: 61273586}
+      objectReference: {fileID: 2136210374}
     - target: {fileID: 114383580440973326, guid: cdd6b9b59f7812942be799e9c57446cc,
         type: 2}
       propertyPath: actualLeftController
       value: 
-      objectReference: {fileID: 234909505}
+      objectReference: {fileID: 2136210373}
     - target: {fileID: 114383580440973326, guid: cdd6b9b59f7812942be799e9c57446cc,
         type: 2}
       propertyPath: actualRightController
       value: 
-      objectReference: {fileID: 1617799363}
+      objectReference: {fileID: 2136210372}
     - target: {fileID: 114383580440973326, guid: cdd6b9b59f7812942be799e9c57446cc,
         type: 2}
       propertyPath: modelAliasLeftController
       value: 
-      objectReference: {fileID: 20339121}
+      objectReference: {fileID: 2136210371}
     - target: {fileID: 114383580440973326, guid: cdd6b9b59f7812942be799e9c57446cc,
         type: 2}
       propertyPath: modelAliasRightController
       value: 
-      objectReference: {fileID: 822593497}
+      objectReference: {fileID: 2136210370}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdd6b9b59f7812942be799e9c57446cc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2136210370 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1820121596679604, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}
+--- !u!1 &2136210371 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1464519094351194, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}
+--- !u!1 &2136210372 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1066118535192590, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}
+--- !u!1 &2136210373 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1648297044699836, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}
+--- !u!1 &2136210374 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1446891206353122, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}
+--- !u!1 &2136210375 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1333916195553514, guid: cdd6b9b59f7812942be799e9c57446cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136210369}

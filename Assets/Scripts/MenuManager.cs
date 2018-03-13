@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour {
 	public Button musicOff;
 	public Button level1;
 	public Button level2;
+	public Button level3;
 	public Button begin;
 
 	public Color onColor = new Color(0.2f, 0.8f, 0.2f, 1.0f);
@@ -38,6 +39,12 @@ public class MenuManager : MonoBehaviour {
 	public void Level2()
 	{
 		level = "Level2";
+		SetColors();
+	}
+
+	public void Level3()
+	{
+		level = "Level3";
 		SetColors();
 	}
 
@@ -82,6 +89,11 @@ public class MenuManager : MonoBehaviour {
 		case "Level2":
 			SetColorOn(level2);
 			SetColorOff(level1);
+			break;
+		case "Level3":
+			SetColorOn (level3);
+			SetColorOff (level1);
+			SetColorOff (level2);
 			break;
 		}
 
