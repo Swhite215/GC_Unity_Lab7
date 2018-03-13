@@ -8,9 +8,15 @@ TagManager:
   - Enemy
   - Target
   - Platform
+<<<<<<< HEAD
   - InventoryMenu
   - InventoryIcon
   - RightController
+=======
+  - PlayerTarget
+  - Fire
+  - VRUnit
+>>>>>>> e46fe78809ead372311781316b137a99cc7f035b
   layers:
   - Default
   - TransparentFX

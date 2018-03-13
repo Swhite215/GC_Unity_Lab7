@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
                 playerCollider.AddComponent(typeof(Rigidbody));
                 playerCollider.GetComponent<Rigidbody>().useGravity = false;
                 playerCollider.GetComponent<Rigidbody>().isKinematic = true;
-                playerCollider.transform.gameObject.tag = "Player";
+                playerCollider.transform.gameObject.tag = "PlayerTarget";
 
 				AudioSource source = audioPlayer.GetComponent<AudioSource>();
 				source.clip = music;
