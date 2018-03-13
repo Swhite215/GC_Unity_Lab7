@@ -10,7 +10,13 @@ public class GrenadeThrow : MonoBehaviour
 	public SteamVR_TrackedObject trackedObj;
 	public SteamVR_Controller.Device device;
 	public GameObject controllerModel;
-	public GameObject grenadePrefab;
+	//public GameObject grenadePrefab;
+
+	public float delay = 3f;
+	public float blastRadius = 5f;
+	public float force = 100f;
+
+	public GameObject explosionEffect;
 
 	public bool objectHeld = false;
 
@@ -47,6 +53,7 @@ public class GrenadeThrow : MonoBehaviour
 
 				ThrowObject(col.attachedRigidbody);
 				//Destroy(col.gameObject, 5);
+				Invoke("Explode", delay);
 				controllerModel.SetActive(true);
 
 
@@ -58,5 +65,21 @@ public class GrenadeThrow : MonoBehaviour
 	{
 		rigidBody.velocity = Quaternion.Euler(Vector3.forward) * device.velocity * throwForce;
 		rigidBody.angularVelocity = Quaternion.Euler(Vector3.forward) * device.angularVelocity;
+	}
+
+	void Explode() {
+		//show expl effect
+		Instantiate(explosionEffect, transform.position, transform.rotation);
+		//find nearby obj
+		Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
+		foreach(Collider nearbyObject in colliders){
+			//force
+			Rigidbody rb = 	nearbyObject.GetComponent<Rigidbody>();
+			if (rb != null) {
+				rb.AddExplosionForce (force, transform.position, blastRadius);
+			}
+			//destroy
+		}
+		Destroy(gameObject);
 	}
 }

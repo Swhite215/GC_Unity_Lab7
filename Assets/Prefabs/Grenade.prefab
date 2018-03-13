@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 4267311517598290}
   - component: {fileID: 114478044524804346}
   - component: {fileID: 114994607881718500}
-  - component: {fileID: 114723158160629608}
   - component: {fileID: 54024923652739072}
   - component: {fileID: 135380499852176572}
   m_Layer: 0
@@ -433,24 +432,11 @@ MonoBehaviour:
   throwForce: 1
   trackedObj: {fileID: 0}
   controllerModel: {fileID: 0}
-  grenadePrefab: {fileID: 0}
-  objectHeld: 0
---- !u!114 &114723158160629608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1503649450671104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebd75245a27bb74a9a085802a9180ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   delay: 3
-  blastRadius: 0.25
-  force: 50
-  explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
-  countdown: 3
+  blastRadius: 5
+  force: 100
+  explosionEffect: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
+  objectHeld: 0
 --- !u!114 &114994607881718500
 MonoBehaviour:
   m_ObjectHideFlags: 1
