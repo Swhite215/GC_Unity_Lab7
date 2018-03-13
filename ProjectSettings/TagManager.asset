@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Target
   - Platform
+  - InventoryMenu
+  - InventoryIcon
+  - RightController
   layers:
   - Default
   - TransparentFX

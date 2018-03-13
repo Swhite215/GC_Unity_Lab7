@@ -4,6 +4,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using UnityEngine.UI;
 
 	[System.Serializable]
 	public class Shoot1 : VRTK_InteractableObject
@@ -13,6 +14,8 @@
 		public float shotForce = 8.0f;
 		public float shotTTL = 5.0f;
 		public float rechargeTime = 2.2f;
+		public Sprite icon;
+
 
 		public AudioClip launchNoise;
 
@@ -24,6 +27,15 @@
 			base.Grabbed(grabbingObject);
 			controllerReference = VRTK_ControllerReference.GetControllerReference(grabbingObject.controllerEvents.gameObject);
 			gameObject.GetComponent<BoxCollider>().isTrigger = true;
+			if (!InventoryManager.instance.IsWeaponAlreadyInInventory(gameObject)) {
+				InventoryManager.instance.AddWeapon(gameObject);
+				if (icon != null)
+				{
+					InventoryManager.instance.ChangeIcons();
+				}
+			}
+			ChangeParent();
+			
 		}
 
 		public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
@@ -42,7 +54,10 @@
 				Shoot();
 			}
 		}
-
+		private void ChangeParent()
+		{
+				transform.parent = GameObject.FindGameObjectWithTag("RightController").transform;
+		}
 		protected void Shoot()
 		{
 			GameManager.shots++;

@@ -10,18 +10,26 @@
 		public int ammo = 6;
 		public Text ammoDisplay;
 
+		void Start()
+		{
+			lastShotTime = Time.time - rechargeTime;
+		}
+		public override void StartUsing(VRTK_InteractUse usingObject)
+		{
+			base.StartUsing(usingObject);
+			if (Time.time > lastShotTime + rechargeTime)
+				if (ammo > 0)
+				{
+					Shoot();
+					ammo--;
+				}
+		}
 		void Update () {
 			if (ammoDisplay != null) {
 				if (ammo < 10) {
 					ammoDisplay.text = "-" + ammo + "-";
 				} else {
 					ammoDisplay.text = "" + ammo;
-				}
-			}
-			if (Input.GetAxis("Fire1") > 0 && Time.time > lastShotTime + rechargeTime) {
-				if (ammo > 0) {
-					Shoot ();
-					ammo--;
 				}
 			}
 		}

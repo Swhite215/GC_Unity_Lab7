@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
 			//wait for 100 milliseconds and try again
 			if (listener == null)
 			{
-				Debug.Log("Not attached");
+				//Debug.Log("Not attached");
 				yield return new WaitForSeconds(.1f);
 			}
 			else
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
 				source.loop = true;
 				source.Play();
 
-				Debug.Log("Success!");
+				//Debug.Log("Success!");
 				setup = true; //our work here is done
 			}
 		}
