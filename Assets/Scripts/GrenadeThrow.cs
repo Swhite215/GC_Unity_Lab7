@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿namespace VRTK.Examples
+{
+
+using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(SteamVR_TrackedObject))]
-
-public class GrenadeThrow : MonoBehaviour
+[System.Serializable]
+public class GrenadeThrow : VRTK_InteractableObject
 {
 
 	public float throwForce = 1;
-	public SteamVR_TrackedObject trackedObj;
-	public SteamVR_Controller.Device device;
+
 	public GameObject controllerModel;
 	//public GameObject grenadePrefab;
 
@@ -17,20 +18,29 @@ public class GrenadeThrow : MonoBehaviour
 	public float force = 100f;
 
 	public GameObject explosionEffect;
-
+	private VRTK_ControllerReference controllerReference;
 	public bool objectHeld = false;
+	public Sprite icon;
+	public Rigidbody Rb;
 
-	void Awake()
+	public void Start()
 	{
-		trackedObj = GetComponent<SteamVR_TrackedObject>();
+			Rb = gameObject.GetComponent<Rigidbody>();
 	}
+	public override void Grabbed(VRTK_InteractGrab grabbingObject)
+		{
+			base.Grabbed(grabbingObject);
+			controllerReference = VRTK_ControllerReference.GetControllerReference(grabbingObject.controllerEvents.gameObject);
+			if (!InventoryManager.instance.IsWeaponAlreadyInInventory(gameObject)) {
+				InventoryManager.instance.AddWeapon(gameObject);
+				if (icon != null)
+				{
+					InventoryManager.instance.ChangeIcons();
+				}
+			}
+		}
 
-	void Update()
-	{
-		device = SteamVR_Controller.Input((int)trackedObj.index);
-	}
-
-	void OnTriggerStay(Collider col)
+	/*void OnTriggerStay(Collider col)
 	{
 		if (col.CompareTag("Grenade"))
 		{
@@ -59,12 +69,20 @@ public class GrenadeThrow : MonoBehaviour
 
 			}
 		}
+	}*/
+	public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
+	{
+			//gameObject.SetActive(false);
+			base.Ungrabbed(previousGrabbingObject);
+			ThrowObject(Rb);
+			controllerReference = null;
+			gameObject.GetComponent<BoxCollider>().isTrigger = false;
 	}
-
 	void ThrowObject(Rigidbody rigidBody)
 	{
-		rigidBody.velocity = Quaternion.Euler(Vector3.forward) * device.velocity * throwForce;
-		rigidBody.angularVelocity = Quaternion.Euler(Vector3.forward) * device.angularVelocity;
+		//rigidBody.velocity = Quaternion.Euler(Vector3.forward) * device.velocity * throwForce;
+		//rigidBody.angularVelocity = Quaternion.Euler(Vector3.forward) * device.angularVelocity;
+		Invoke("Explode", delay);
 	}
 
 	void Explode() {
@@ -82,4 +100,5 @@ public class GrenadeThrow : MonoBehaviour
 		}
 		Destroy(gameObject);
 	}
+}
 }

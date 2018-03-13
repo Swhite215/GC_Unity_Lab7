@@ -2981,6 +2981,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 583156407}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &613695289
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.0093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.0494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057998034929498, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fc4f31e103f46d84ca8457703ce77d06, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &623528011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,16 +4284,6 @@ Prefab:
     - target: {fileID: 4267311517598290, guid: ad83aa9da8b5c0841979ef764145211a, type: 2}
       propertyPath: m_RootOrder
       value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 114478044524804346, guid: ad83aa9da8b5c0841979ef764145211a,
-        type: 2}
-      propertyPath: blastRadius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114478044524804346, guid: ad83aa9da8b5c0841979ef764145211a,
-        type: 2}
-      propertyPath: force
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad83aa9da8b5c0841979ef764145211a, type: 2}
@@ -6356,12 +6388,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 990893239}
+  actualHeadset: {fileID: 1848669919}
+  actualLeftController: {fileID: 1104499797}
+  actualRightController: {fileID: 257286234}
+  modelAliasLeftController: {fileID: 2097487339}
+  modelAliasRightController: {fileID: 702401773}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
