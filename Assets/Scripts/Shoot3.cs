@@ -6,37 +6,86 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 
-	public class Shoot3 : Shoot1 {
+	[System.Serializable]
+	public class Shoot3 : VRTK_InteractableObject
+	{
+		public GameObject projectile;
+		public GameObject shotPoint;
+		public float shotForce = 8.0f;
+		public float shotTTL = 5.0f;
+		public float rechargeTime = 2.2f;
+		public Sprite icon;
 		public int ammo = 6;
 		public Text ammoDisplay;
 
-		void Start()
+
+		public AudioClip launchNoise;
+
+		protected float lastShotTime;
+		private VRTK_ControllerReference controllerReference;
+
+		public override void Grabbed(VRTK_InteractGrab grabbingObject)
 		{
-			lastShotTime = Time.time - rechargeTime;
-		}
-		public override void StartUsing(VRTK_InteractUse usingObject)
-		{
-			base.StartUsing(usingObject);
-			if (Time.time > lastShotTime + rechargeTime)
-				if (ammo > 0)
+			base.Grabbed(grabbingObject);
+			controllerReference = VRTK_ControllerReference.GetControllerReference(grabbingObject.controllerEvents.gameObject);
+			gameObject.GetComponent<BoxCollider>().isTrigger = true;
+			if (!InventoryManager.instance.IsWeaponAlreadyInInventory(gameObject))
+			{
+				InventoryManager.instance.AddWeapon(gameObject);
+				if (icon != null)
 				{
-					Shoot();
-					ammo--;
-				}
-		}
-		void Update () {
-			if (ammoDisplay != null) {
-				if (ammo < 10) {
-					ammoDisplay.text = "-" + ammo + "-";
-				} else {
-					ammoDisplay.text = "" + ammo;
+					InventoryManager.instance.ChangeIcons();
 				}
 			}
+
+
+		}
+		public void Start()
+		{
+			lastShotTime = Time.time - rechargeTime;
+			ChangeParent();
 		}
 
-		public void Reload3 (int q) {
-			ammo += q;
+		public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
+		{
+			gameObject.SetActive(false);
+			//base.Ungrabbed(previousGrabbingObject);
+			controllerReference = null;
+			gameObject.GetComponent<BoxCollider>().isTrigger = false;
+		}
+
+		public override void StartUsing(VRTK_InteractUse usingObject)
+		{
+			//Debug.Log("trigger pull");
+			base.StartUsing(usingObject);
+			if (Time.time > lastShotTime + rechargeTime)
+			{
+				Shoot();
+			}
+		}
+		private void ChangeParent()
+		{
+			transform.parent = GameObject.FindGameObjectWithTag("RightController").transform;
+		}
+		protected void Shoot()
+		{
+			GameManager.shots++;
+
+			lastShotTime = Time.time;
+
+			if (launchNoise != null)
+			{
+				AudioSource.PlayClipAtPoint(launchNoise, shotPoint.transform.position, 1.0f);
+			}
+			VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 1.0f, 0.2f, 0.01f);
+
+			GameObject newshot = Object.Instantiate(projectile,
+				shotPoint.transform.position,
+				this.transform.rotation);
+
+			newshot.GetComponent<Rigidbody>().AddForce(transform.up * shotForce, ForceMode.Impulse);
+
+			Object.Destroy(newshot, shotTTL);
 		}
 	}
-
 }

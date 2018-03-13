@@ -43,7 +43,8 @@
 
 		public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
 		{
-			base.Ungrabbed(previousGrabbingObject);
+			gameObject.SetActive(false);
+			//base.Ungrabbed(previousGrabbingObject);
 			controllerReference = null;
 			gameObject.GetComponent<BoxCollider>().isTrigger = false;
 		}

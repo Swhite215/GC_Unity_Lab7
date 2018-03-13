@@ -40,21 +40,6 @@ public class InventoryManager : MonoBehaviour {
 	}
 	public void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			SwitchToGunOne();
-		}
-		if (Input.GetKeyDown(KeyCode.B))
-		{
-			SwitchToGunTwo();
-		}
-		if (Input.GetKeyDown(KeyCode.C))
-		{
-			SwitchToGunThree();
-		}
-		if (Input.GetKeyDown(KeyCode.T)) {
-			TellMeIconNames();
-		}
 		GetIcons();
 	}
 	public void ChangeIcons() {
